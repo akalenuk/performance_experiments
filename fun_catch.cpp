@@ -13,7 +13,9 @@ int main(int argc,  char** argv){
 		};
 	}
 	for(int i = 0; i < std::numeric_limits<int>::max(); ++i)
-		if(check)
+		try{
 			check(i);
+		}catch(std::bad_function_call& ){
+		}
 }
 

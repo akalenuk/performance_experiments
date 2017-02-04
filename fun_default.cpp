@@ -4,7 +4,7 @@
 #include <limits>
 
 int main(int argc,  char** argv){
-	std::function<void(int)> check;
+	std::function<void(int)> check = [](int){};
 	if( argc == 2 ){
 		int check_against = atoi(argv[1]);
 		check = [=](int number) -> void {
@@ -13,7 +13,6 @@ int main(int argc,  char** argv){
 		};
 	}
 	for(int i = 0; i < std::numeric_limits<int>::max(); ++i)
-		if(check)
-			check(i);
+		check(i);
 }
 
